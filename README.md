@@ -40,51 +40,8 @@ get started.
 
 The generic Ubuntu MATE armhf root filesystem tarball is available for download.
 
-<div class="row">
-  <div class="col-lg-6">
-    <div class="bs-component">
-      <div class="list-group">
-        <a class="list-group-item active">ARMv7</a>
-        <p class="list-group-item">For ARMv7 based devices but will require that you add your devices boot loader, kernel and other drivers.</p>
-        <p class="list-group-item">Size : 903 MB</p>
-        <a class="list-group-item" href="http://master.dl.sourceforge.net/project/ubuntu-mate/15.04/armhf/ubuntu-mate-15.04-desktop-armhf-rootfs.tar.gz"><strong>File: <u>ubuntu-mate-15.04-desktop-armhf-rootfs.tar.gz</u></strong></a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="well bs-component">
-      <form name="single" class="form-horizontal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <fieldset>
-          <legend>Download tip</legend>
-          <p>If everyone who downloaded Ubuntu MATE donated $2.50 it would
-          fund the full-time development of Ubuntu MATE <i>and</i> MATE
-          Desktop. Please give us a tip and help the projects flourish!</p>
-          <p>If you'd <a href="/donate/">like to donate more or become an Ubuntu MATE patron</a>
-          please visit the <a href="/donate/">donate</a> page.</p>
-          <img class="right" src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal Logo">
-          <div class="form-group">
-            <div class="col-lg-6">
-              <button type="submit" class="btn btn-primary">Tip us $2.50</button>
-            </div>
-          </div>
-        </fieldset>
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="6282B4CZGVCB6">
-        <input type="hidden" name="item_name" value="Ubuntu MATE for armhf rootfs Download Tip">
-        <input type="hidden" name="no_shipping" value="1">
-        <input type="hidden" name="no_note" value="1">
-        <input type="hidden" name="charset" value="UTF-8">
-        <input type="hidden" name="amount" value="2.50">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="src" value="1">
-        <input type="hidden" name="sra" value="1">
-        <input type="hidden" name="return" value="https://ubuntu-mate.org/donation-completed/">
-        <input type="hidden" name="cancel_return" value="https://ubuntu-mate.org/donation-cancelled/">
-      </form>  
-    </div>
-  </div>
-</div>
-
+  * http://master.dl.sourceforge.net/project/ubuntu-mate/15.04/armhf/ubuntu-mate-15.04-desktop-armhf-rootfs.tar.gz
+      
 ### Extract the root file system
 
 The root filesystem tarball will require a minimum of 4GB to extract. Extract
