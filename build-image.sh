@@ -27,6 +27,7 @@ RELEASE=vivid
 BASEDIR=/var/local/build/${RELEASE}
 BUILDDIR=${BASEDIR}/ubuntu-mate
 MATE_R=${BUILDDIR}/mate
+MATE_R=${BUILDDIR}/odroidc1
 export TZ=UTC
 
 if [ $(id -u) -ne 0 ]; then
@@ -73,14 +74,10 @@ function configure_odroidc1() {
         exit 1
     fi
 
-    echo "STUB! This odroidc1 function is a stub that does nothing."
-    exit 1 # <- Remove this exit if you add ODROID C1 support
+    echo "deb http://deb.odroid.in/c1/ trusty main" >  $R/etc/apt/sources.d/odroid.list
+    echo "deb http://deb.odroid.in/ trusty main"    >> $R/etc/apt/sources.d/odroid.list
 
-    # Add "stuff" here. The references might be useful.
-    #  * http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal
-    #  * https://github.com/umiddelb/armhf/wiki/Install-Ubuntu-Core-14.04-on-ARMv7-%28ODROID-C1%29
 }
-
 function configure_raspi2() {
     local FS="${1}"
     if [ "${FS}" != "ext4" ] && [ "${FS}" != 'f2fs' ]; then
@@ -277,7 +274,7 @@ function make_image() {
     local GB=${2}
     local DEVICE_NAME="${3}"
 
-    IMAGE="ubuntu-mate-15.05-desktop-${DEVICE_NAME}.img"
+    IMAGE="ubuntu-mate-15.04-desktop-${DEVICE_NAME}.img"
 
     if [ "${FS}" != "ext4" ] && [ "${FS}" != 'f2fs' ]; then
         echo "ERROR! Unsupport filesystem requested. Exitting."
@@ -371,4 +368,4 @@ function armhf_image() {
 # File systems can be 'ext4' or 'f2fs'
 # Size can be '4' or '8'
 # The device name is arbitary but will need adding to the armhf_image() function.
-armhf_image ext4 4 example
+armhf_image ext4 4 odroidc1
