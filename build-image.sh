@@ -246,6 +246,15 @@ blacklist snd_soc_wm8804
 EOM
 }
 
+function configure_veyron_speedy() {
+    local FS="${1}"
+    if [ "${FS}" != "ext4" ] && [ "${FS}" != 'f2fs' ]; then
+        echo "ERROR! Unsupport filesystem requested. Exitting."
+        exit 1
+    fi
+
+}
+
 function clean_up() {
     rm -f $R/etc/apt/sources.list.save
     rm -f $R/etc/resolvconf/resolv.conf.d/original
@@ -294,6 +303,10 @@ function make_image() {
         SEEK=7680
         SIZE=15728639
         SIZE_LIMIT=7615
+    elif [ ${GB} -eq 16 ]; then
+        SEEK=11430
+        SIZE=23910398
+        SIZE_LIMIT=11545
     fi
 
     dd if=/dev/zero of="${BASEDIR}/${IMAGE}" bs=1M count=1
@@ -354,6 +367,8 @@ function armhf_image() {
         configure_raspi2 ${FS}
     elif [ "${DEVICE_NAME}" == "odroidc1"
         configure_odroidc1 ${FS}
+    elif [ "${DEVICE_NAME}" == "veyron_speedy"
+        configure_veyron_speedy ${FS}
     else
         echo "ERROR! Unknown device - ${DEVICE_NAME}. Exitting."
         umount_system
@@ -368,4 +383,6 @@ function armhf_image() {
 # File systems can be 'ext4' or 'f2fs'
 # Size can be '4' or '8'
 # The device name is arbitary but will need adding to the armhf_image() function.
-armhf_image ext4 4 odroidc1
+#armhf_image ext4 4 odroidc1
+
+armhf_image ext4 16 veyron_speedy
